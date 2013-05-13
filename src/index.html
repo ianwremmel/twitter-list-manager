@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Twitter List Manager</title>
+
+		<!-- build:less bootstrap.css -->
+		<link rel="stylesheet/less" type="text/css" href="/.tmp/bootstrap.less">
+		<link rel="stylesheet/less" type="text/css" href="/.tmp/responsive.less">
+		<script>
+			less = {
+				env: 'development',
+				async: false,
+				fileAsync: false,
+				poll: 1000,
+				functions: {},
+				dumpLineNumbers: 'comments',
+				relativeUrls: false
+			};
+		</script>
+		<script src="/components/less.js/dist/less-1.4.0-beta.js"></script>
+		<!-- endbuild -->
+
+		<!-- build:js app.js -->
+		<script data-main="main.js" src="/components/requirejs/require.js"></script>
+		<!-- endbuild -->
+
+	</head>
+	<body>
+		<div id="layout"></div>
+	</body>
+</html>

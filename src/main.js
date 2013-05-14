@@ -24,6 +24,9 @@ require.config({
 	}
 });
 
-require(['app'], function(app) {
+require(['app', 'lib/duckpunch'], function(app, duckpunch) {
+	/*global Backbone*/
+	duckpunch(Backbone);
+
 	app.start();
 });

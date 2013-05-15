@@ -9,7 +9,8 @@
     "requirejs-tpl": "latest",
     "backbone.marionette": "~1.0.2",
     "backbone.wreqr": "~0.2.0",
-    "backbone.babysitter": "~0.0.6"
+    "backbone.babysitter": "~0.0.6",
+    "Backbone.ModelBinder": "https://github.com/theironcook/Backbone.ModelBinder.git#~1.0.2"
   },
   "devDependencies": {
     "requirejs": "~2.1.6",

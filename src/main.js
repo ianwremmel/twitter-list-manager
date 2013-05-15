@@ -2,16 +2,19 @@
 'use strict';
 
 require.config({
-	baseUrl: '/scripts/',
+	// The . in the baseUrl is a trick to make require.js and r.js both look for
+	// the correct paths.
+	baseUrl: './scripts/',
 	paths: {
 		// libraries
-		backbone: '/components/backbone/backbone',
-		jquery: '/components/jquery/jquery',
-		'backbone.babysitter': '/components/backbone.babysitter/lib/amd/backbone.babysitter',
-		marionette: '/components/backbone.marionette/lib/core/amd/backbone.marionette',
-		'backbone.wreqr': '/components/backbone.wreqr/lib/amd/backbone.wreqr',
-		underscore: '/components/lodash/lodash',
-		tpl: '/components/requirejs-tpl/tpl',
+		backbone: '../../components/backbone/backbone',
+		'backbone.babysitter': '../../components/backbone.babysitter/lib/amd/backbone.babysitter',
+		'backbone.ModelBinder': '../../components/Backbone.ModelBinder/Backbone.ModelBinder',
+		'backbone.wreqr': '../../components/backbone.wreqr/lib/amd/backbone.wreqr',
+		jquery: '../../components/jquery/jquery',
+		marionette: '../../components/backbone.marionette/lib/core/amd/backbone.marionette',
+		underscore: '../../components/lodash/lodash',
+		tpl: '../../components/requirejs-tpl/tpl',
 
 		// non-libraries
 		templates: '../templates'
@@ -24,9 +27,13 @@ require.config({
 	}
 });
 
-require(['app', 'lib/duckpunch'], function(app, duckpunch) {
-	/*global Backbone*/
-	duckpunch(Backbone);
-
-	app.start();
-});
+require([
+	'app',
+	'lib/duckpunch',
+	'backbone.ModelBinder'
+	], function(app, duckpunch) {
+		/*global Backbone*/
+		duckpunch(Backbone);
+		app.start();
+	}
+);

@@ -1,16 +1,14 @@
 /*jslint node: true*/
 'use strict';
 
-var https = require('https'),
-	OAuth = require('oauth');
+var OAuth = require('oauth');
 
 exports.proxy = function(req, res) {
-	console.log(process.env);
 	var oauth = new OAuth.OAuth(
 		'https://api.twitter.com/oauth/request_token',
 		'https://api.twitter.com/oauth/access_token',
 		process.env.TWITTER_APP_CONSUMER_KEY,
-		process.env.TWITTER_APP_SECRET_KEY,
+		process.env.TWIITER_APP_SECRET_KEY,
 		'1.0A',
 		null,
 		'HMAC-SHA1'

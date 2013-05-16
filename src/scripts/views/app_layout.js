@@ -5,12 +5,13 @@ define(['marionette', 'tpl!/templates/app_layout.tmpl'], function(Marionette, tm
 		template: tmpl,
 
 		regions: {
-			user: '#user'
+			user: '#user',
+			friends: '#friends'
 		},
 
 		showRegions: function() {
 			var self = this;
-			require(['views/user', 'models/user'], function(UserView, UserModel) {
+			require(['views/models/user', 'models/user'], function(UserView, UserModel) {
 				var model = new UserModel();
 				var view = new UserView({model: model});
 
@@ -21,6 +22,15 @@ define(['marionette', 'tpl!/templates/app_layout.tmpl'], function(Marionette, tm
 
 				model.fetch();
 			});
+
+			require(['views/collections/friends', 'collections/friends'], function(FriendsView, FriendsCollection) {
+				var collection = new FriendsCollection();
+				var view = new FriendsView({collection: collection});
+
+				self.friends.show(view);
+
+				collection.fetch();
+			})
 		}
 	});
 });

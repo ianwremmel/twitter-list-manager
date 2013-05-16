@@ -14,8 +14,8 @@ exports.proxy = function(req, res) {
 		'HMAC-SHA1'
 	);
 
-	oauth.get(
-		'https://api.twitter.com/1.1/' + req.path.split('/').slice(2).join('/'),
+	var request = oauth.get(
+		'https://api.twitter.com/1.1/' + req.url.split('/').slice(2).join('/'),
 		process.env.TWITTER_USER_TOKEN,
 		process.env.TWITTER_USER_SECRET,
 		function (e, data, response) {
